@@ -1,5 +1,5 @@
-all: apriori.o transaction.o
-	clang apriori.o transaction.o -o apriori
+all: apriori.o transaction.o main.o
+	clang apriori.o transaction.o main.o -o main
 
 clean:
-	rm -rf *.o apriori
+	rm -rf *.o main
