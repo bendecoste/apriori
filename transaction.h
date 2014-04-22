@@ -20,7 +20,7 @@ void print_trans_entry(struct trans_entry t_entry);
 
 void add_trans(struct trans_list *t_list, struct trans_entry t_entry);
 void print_trans_list(struct trans_list t_list);
-struct trans_list generate_trans_list(int entries);
+struct trans_list generate_trans_list(int num_transactions);
 
 
 #endif

@@ -3,9 +3,6 @@
 #include <time.h>
 #include "transaction.h"
 
-const int MAX_TRANS_NUM = 4;
-const int MAX_ENTRY_NUM = 3;
-
 struct trans_entry new_trans_entry(int *dataset, int size) {
   struct trans_entry *n_trans = malloc(sizeof(struct trans_entry));
   // n_trans->dataset = malloc(sizeof(int) * (sizeof(dataset) / sizeof(dataset[0])));
@@ -36,10 +33,10 @@ void print_trans_list(struct trans_list t_list) {
   printf("\n");
 }
 
-struct trans_list generate_trans_list(int entries) {
+struct trans_list generate_trans_list(int num_transactions) {
   struct trans_list *t_list = malloc(sizeof(struct trans_list));
-  t_list->t_entry = malloc(sizeof(struct trans_entry)*entries);
-  t_list->t_size = entries;
+  t_list->t_entry = malloc(sizeof(struct trans_entry)*num_transactions);
+  t_list->t_size = num_transactions;
   t_list->t_index = 0;
 
   /*
@@ -48,12 +45,12 @@ struct trans_list generate_trans_list(int entries) {
 
   srand(time(0));
 
-  for (int i = 0; i < entries; ++i) {
-    int num_entries_in_trans = (rand() % MAX_TRANS_NUM) + 1; // no zeros
+  for (int i = 0; i < num_transactions; ++i) {
+    int num_entries_in_trans = (rand() % 10);
 
     int *dataset = malloc(sizeof(int) * num_entries_in_trans);
     for (int j = 0; j < num_entries_in_trans; ++j) {
-      int add = ( rand() % MAX_TRANS_NUM ) + 1;
+      int add = ( rand() % 10 );
       dataset[j] = add;
     }
 

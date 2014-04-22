@@ -1,5 +1,5 @@
 all: apriori.o transaction.o main.o
-	clang apriori.o transaction.o main.o -o main
+	gcc-4.9 -fopenmp apriori.o transaction.o main.o -o main
 
 clean:
 	rm -rf *.o main
